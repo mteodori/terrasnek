@@ -53,6 +53,31 @@ class TFCWorkspaces(TFCEndpoint):
 
         return self._destroy(url)
 
+    def safe_destroy(self, workspace_id=None, workspace_name=None):
+        """
+        ``POST /workspaces/:workspace_id/actions/safe-delete``
+        ``DELETE /organizations/:organization_name/workspaces/:name/actions/safe-delete``
+
+        TODO / NOTE: the above DELETE should really be a POST, the docs don't match reality, so
+        need to leave it as DELETE for now since our API comparison script relies on those strings.
+
+        `Workspaces Safe Destroy API Doc Reference \
+            <https://developer.hashicorp.com/terraform/cloud-docs/api-docs/workspaces#safe-delete-a-workspace>`_
+        """
+        resp = None
+
+        if workspace_name is not None:
+            url = f"{self._org_api_v2_base_url}/{workspace_name}/actions/safe-delete"
+            resp = self._post(url)
+        elif workspace_id is not None:
+            url = f"{self._ws_api_v2_base_url}/{workspace_id}/actions/safe-delete"
+            print("URL WS", url)
+            resp = self._post(url)
+        else:
+            self._logger.error("Arguments workspace_name or workspace_id must be defined")
+
+        return resp
+
     def force_unlock(self, workspace_id):
         """
         ``POST /workspaces/:workspace_id/actions/force-unlock``

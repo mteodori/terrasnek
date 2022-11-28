@@ -96,6 +96,8 @@ class TestTFCPolicyChecks(TestTFCBaseTestCase):
         shown_pol_check = self._api.policy_checks.show(pol_check_id)["data"]
         self.assertEqual(pol_check_id, shown_pol_check["id"])
 
+        # TODO: add tests for list_policy_evals_in_task_stage, list_policy_outcomes, and show_policy_outcome
+
         # Override the policy check that soft failed, confirm we can continue
         self._api.policy_checks.override(pol_check_id)
 
