@@ -67,6 +67,7 @@ class TestTFCTeamMemberships(TestTFCBaseTestCase):
             ]
         }
 
+        # TODO: figure out a way to use a member that has already accepted the org invite
         # If the result is None for both the add and remove, consider it successful (the user has to accept the org invite first)
         add_result = self._api.team_memberships.add_user_to_team_with_org_id(self._team_id, membership_via_org_payload)
         self.assertIsNone(add_result)

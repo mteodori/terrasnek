@@ -1733,8 +1733,8 @@
                 "http-paths": [
                     "POST /workspaces/:workspace_id/relationships/remote-state-consumers"
                 ],
-                "implementation-method-name": null,
-                "implemented": false,
+                "implementation-method-name": "add_remote_state_consumers",
+                "implemented": true,
                 "permalink": "https://www.terraform.io/cloud-docs/api-docs/workspaces#add-remote-state-consumers"
             },
             "Add tags to a workspace": {
@@ -1765,8 +1765,8 @@
                 "http-paths": [
                     "DELETE /workspaces/:workspace_id/relationships/remote-state-consumers"
                 ],
-                "implementation-method-name": null,
-                "implemented": false,
+                "implementation-method-name": "delete_remote_state_consumers",
+                "implemented": true,
                 "permalink": "https://www.terraform.io/cloud-docs/api-docs/workspaces#delete-remote-state-consumers"
             },
             "Force Delete a workspace": {
@@ -1790,8 +1790,8 @@
                 "http-paths": [
                     "GET /workspaces/:workspace_id/relationships/remote-state-consumers"
                 ],
-                "implementation-method-name": null,
-                "implemented": false,
+                "implementation-method-name": "get_remote_state_consumers",
+                "implemented": true,
                 "permalink": "https://www.terraform.io/cloud-docs/api-docs/workspaces#get-remote-state-consumers"
             },
             "Get Tags": {
@@ -1830,8 +1830,8 @@
                 "http-paths": [
                     "PATCH /workspaces/:workspace_id/relationships/remote-state-consumers"
                 ],
-                "implementation-method-name": null,
-                "implemented": false,
+                "implementation-method-name": "replace_remote_state_consumers",
+                "implemented": true,
                 "permalink": "https://www.terraform.io/cloud-docs/api-docs/workspaces#replace-remote-state-consumers"
             },
             "Safe Delete a workspace": {
