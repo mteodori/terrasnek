@@ -78,12 +78,12 @@ class TFCPolicyChecks(TFCEndpoint):
         url = f"{self._pol_evals_url}/{policy_eval_id}/policy-set-outcomes"
         return self._list(url)
 
-    def show_policy_outcome(self, policy_eval_id):
+    def show_policy_outcome(self, policy_set_outcome_id):
         """
         ``GET /policy-set-outcomes/:policy_set_outcome_id``
 
         `Policy Checks Show Policy Outcome API Doc Reference \
             <https://developer.hashicorp.com/terraform/cloud-docs/api-docs/policy-checks#list-policy-outcomes>`_
         """
-        url = f"{self._pol_outcomes_url}/{policy_eval_id}/policy-set-outcomes"
+        url = f"{self._pol_outcomes_url}/{policy_set_outcome_id}/policy-set-outcomes"
         return self._show(url)
