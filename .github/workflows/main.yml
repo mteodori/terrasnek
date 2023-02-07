@@ -32,15 +32,3 @@ jobs:
           TODO : ${{ secrets.TODO }}
         run: |
           make coverage
-  contributor_check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Lint the code, build the docs, run a full test suite and the contributor check.
-        env:
-          TODO : ${{ secrets.TODO }}
-        run: |
-          make lint
-          make docs
-          make coverage
-          make contributor_check
