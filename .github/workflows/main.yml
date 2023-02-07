@@ -1,0 +1,46 @@
+name: CI
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "add-gh-actions" ]
+  pull_request:
+    branches: [ "add-gh-actions" ]
+
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Run at 5PM every day
+    - cron: "0 19 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  api_comparison:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compare API docs against implemented endpoints, identify gaps.
+        env:
+          TODO : ${{ secrets.TODO }}
+        run: |
+          make api_comparison
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run the full suite of of tests and report coverage
+        env:
+          TODO : ${{ secrets.TODO }}
+        run: |
+          make coverage
+  contributor_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Lint the code, build the docs, run a full test suite and the contributor check.
+        env:
+          TODO : ${{ secrets.TODO }}
+        run: |
+          make lint
+          make docs
+          make coverage
+          make contributor_check
